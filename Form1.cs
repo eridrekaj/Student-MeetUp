@@ -22,7 +22,7 @@ namespace DatingApp
             public string QytetiIm { get; set; }
             public string QytetiKerkoj { get; set; }
 
-            public override string ToString() => $"{Emri} ({QytetiIm}) - Kontakt: {Kontakti}";
+            public override string ToString() => $"{Emri}, {SeksiIm}";
         }
 
         List<User> database = new List<User>();
@@ -183,7 +183,29 @@ namespace DatingApp
             cmbSeksiIm.SelectedIndex = -1; cmbSeksiKerkoj.SelectedIndex = -1;
         }
 
+        private void lstMatches_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // 1. Kontrollojmë nëse përdoruesi ka përzgjedhur vërtet diçka
+            if (lstMatches.SelectedItem != null)
+            {
+                // 2. Marrim objektin e përdoruesit që klikuam
+                // (ListBox e mban objektin e plotë User, jo vetëm tekstin)
+                if (lstMatches.SelectedItem is User personiKlikuar)
+                {
+                    // 3. Shfaqim të dhënat e tij te Label-et që krijuam
+                    lblMatchAbout.Text = "Rreth meje: " + personiKlikuar.AboutMe;
+                    lblMatchContact.Text = "Kontakti: " + personiKlikuar.Kontakti;
+
+                    // Opsionale: I bëjmë Label-et me ngjyrë tjetër që të bien në sy
+                    lblMatchContact.ForeColor = Color.Blue;
+                }
+            }
+        }
+
+
         // Eventet e panevojshme që mund të lihen bosh ose të fshihen nëse nuk përdoren
+
+        /*
         private void btnRegister_Click_1(object sender, EventArgs e) => btnRegister_Click(sender, e);
         private void btnLogin_Click_1(object sender, EventArgs e) => btnLogin_Click(sender, e);
         private void txtRegKontakt_TextChanged(object sender, EventArgs e) { }
@@ -198,5 +220,8 @@ namespace DatingApp
         {
 
         }
+
+        */
+
     }
 }
