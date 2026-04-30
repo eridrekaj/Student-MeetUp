@@ -43,14 +43,28 @@
             txtRegEmri = new TextBox();
             txtRegPass = new TextBox();
             txtRegUser = new TextBox();
-            tabDashboard = new TabPage();
+            tabExplore = new TabPage();
             groupBox1 = new GroupBox();
             lblMatchContact = new Label();
             lblMatchAbout = new Label();
-            btnLogout = new Button();
             lstMatches = new ListBox();
-            grpProfili = new GroupBox();
+            tabProfiliIm = new TabPage();
             btnRuajNdryshimet = new Button();
+            groupBox2 = new GroupBox();
+            cmbQytetiKerkoj2 = new ComboBox();
+            label13 = new Label();
+            label14 = new Label();
+            cmbQytetiIm2 = new ComboBox();
+            cmbSeksiKerkoj2 = new ComboBox();
+            label15 = new Label();
+            label16 = new Label();
+            cmbSeksiIm2 = new ComboBox();
+            btnNdryshoFoton = new Button();
+            picProfiliIm = new PictureBox();
+            btnLogout = new Button();
+            grpProfili = new GroupBox();
+            label11 = new Label();
+            dtpBirth2 = new DateTimePicker();
             label8 = new Label();
             label7 = new Label();
             txtEditKontakt = new TextBox();
@@ -59,8 +73,11 @@
             tabLogin.SuspendLayout();
             lgnForm.SuspendLayout();
             tabRegister.SuspendLayout();
-            tabDashboard.SuspendLayout();
+            tabExplore.SuspendLayout();
             groupBox1.SuspendLayout();
+            tabProfiliIm.SuspendLayout();
+            groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picProfiliIm).BeginInit();
             grpProfili.SuspendLayout();
             SuspendLayout();
             // 
@@ -68,7 +85,8 @@
             // 
             tabMain.Controls.Add(tabLogin);
             tabMain.Controls.Add(tabRegister);
-            tabMain.Controls.Add(tabDashboard);
+            tabMain.Controls.Add(tabExplore);
+            tabMain.Controls.Add(tabProfiliIm);
             tabMain.Location = new Point(12, 12);
             tabMain.Name = "tabMain";
             tabMain.SelectedIndex = 0;
@@ -104,6 +122,7 @@
             txtLoginUser.PlaceholderText = "Emri i Perdoruesit";
             txtLoginUser.Size = new Size(238, 27);
             txtLoginUser.TabIndex = 0;
+            txtLoginUser.TextAlign = HorizontalAlignment.Center;
             // 
             // txtLoginPass
             // 
@@ -113,6 +132,7 @@
             txtLoginPass.PlaceholderText = "Fjalekalimi";
             txtLoginPass.Size = new Size(234, 27);
             txtLoginPass.TabIndex = 1;
+            txtLoginPass.TextAlign = HorizontalAlignment.Center;
             // 
             // btnLogin
             // 
@@ -191,7 +211,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(23, 304);
+            label3.Location = new Point(20, 304);
             label3.Name = "label3";
             label3.Size = new Size(78, 20);
             label3.TabIndex = 14;
@@ -216,11 +236,11 @@
             dtpBirth.Size = new Size(174, 27);
             dtpBirth.TabIndex = 12;
             dtpBirth.Value = new DateTime(2010, 12, 31, 0, 0, 0, 0);
+            dtpBirth.ValueChanged += dtpBirth_ValueChanged;
             // 
             // cmbQytetiKerkoj
             // 
             cmbQytetiKerkoj.FormattingEnabled = true;
-            cmbQytetiKerkoj.Items.AddRange(new object[] { "Berati", "Durrësi", "Elbasani", "Fieri", "Gjirokastra", "Korça", "Kukësi", "Lezha", "Lushnja", "Saranda", "Shkodra", "Tirana", "Vlora" });
             cmbQytetiKerkoj.Location = new Point(460, 178);
             cmbQytetiKerkoj.Name = "cmbQytetiKerkoj";
             cmbQytetiKerkoj.Size = new Size(151, 28);
@@ -238,7 +258,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(362, 99);
+            label4.Location = new Point(362, 96);
             label4.Name = "label4";
             label4.Size = new Size(59, 20);
             label4.TabIndex = 9;
@@ -247,16 +267,15 @@
             // cmbQytetiIm
             // 
             cmbQytetiIm.FormattingEnabled = true;
-            cmbQytetiIm.Items.AddRange(new object[] { "Berati", "Durrësi", "Elbasani", "Fieri", "Gjirokastra", "Korça", "Kukësi", "Lezha", "Lushnja", "Saranda", "Shkodra", "Tirana", "Vlora" });
             cmbQytetiIm.Location = new Point(460, 91);
             cmbQytetiIm.Name = "cmbQytetiIm";
             cmbQytetiIm.Size = new Size(151, 28);
             cmbQytetiIm.TabIndex = 8;
+            cmbQytetiIm.SelectedIndexChanged += cmbQytetiIm_SelectedIndexChanged;
             // 
             // cmbSeksiKerkoj
             // 
             cmbSeksiKerkoj.FormattingEnabled = true;
-            cmbSeksiKerkoj.Items.AddRange(new object[] { "Femer", "Mashkull" });
             cmbSeksiKerkoj.Location = new Point(460, 212);
             cmbSeksiKerkoj.Name = "cmbSeksiKerkoj";
             cmbSeksiKerkoj.Size = new Size(151, 28);
@@ -265,7 +284,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(362, 214);
+            label2.Location = new Point(362, 217);
             label2.Name = "label2";
             label2.Size = new Size(52, 20);
             label2.TabIndex = 6;
@@ -274,7 +293,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(362, 65);
+            label1.Location = new Point(362, 62);
             label1.Name = "label1";
             label1.Size = new Size(52, 20);
             label1.TabIndex = 5;
@@ -283,7 +302,6 @@
             // cmbSeksiIm
             // 
             cmbSeksiIm.FormattingEnabled = true;
-            cmbSeksiIm.Items.AddRange(new object[] { "Femer", "Mashkull" });
             cmbSeksiIm.Location = new Point(460, 57);
             cmbSeksiIm.Name = "cmbSeksiIm";
             cmbSeksiIm.Size = new Size(151, 28);
@@ -323,26 +341,24 @@
             txtRegUser.Size = new Size(258, 27);
             txtRegUser.TabIndex = 0;
             // 
-            // tabDashboard
+            // tabExplore
             // 
-            tabDashboard.Controls.Add(groupBox1);
-            tabDashboard.Controls.Add(btnLogout);
-            tabDashboard.Controls.Add(lstMatches);
-            tabDashboard.Controls.Add(grpProfili);
-            tabDashboard.Location = new Point(4, 29);
-            tabDashboard.Name = "tabDashboard";
-            tabDashboard.Size = new Size(689, 442);
-            tabDashboard.TabIndex = 2;
-            tabDashboard.Text = "Dashboard";
-            tabDashboard.UseVisualStyleBackColor = true;
+            tabExplore.Controls.Add(groupBox1);
+            tabExplore.Controls.Add(lstMatches);
+            tabExplore.Location = new Point(4, 29);
+            tabExplore.Name = "tabExplore";
+            tabExplore.Size = new Size(689, 442);
+            tabExplore.TabIndex = 2;
+            tabExplore.Text = "Eksploro";
+            tabExplore.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(lblMatchContact);
             groupBox1.Controls.Add(lblMatchAbout);
-            groupBox1.Location = new Point(353, 241);
+            groupBox1.Location = new Point(353, 18);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(301, 161);
+            groupBox1.Size = new Size(320, 404);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "Detajet e Personit";
@@ -365,48 +381,190 @@
             lblMatchAbout.TabIndex = 1;
             lblMatchAbout.Text = "profili";
             // 
-            // btnLogout
-            // 
-            btnLogout.Location = new Point(76, 381);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(165, 29);
-            btnLogout.TabIndex = 7;
-            btnLogout.Text = "Dil ( Logout )";
-            btnLogout.UseVisualStyleBackColor = true;
-            btnLogout.Click += btnLogout_Click;
-            // 
             // lstMatches
             // 
             lstMatches.FormattingEnabled = true;
-            lstMatches.Location = new Point(340, 30);
+            lstMatches.Location = new Point(17, 18);
             lstMatches.Name = "lstMatches";
-            lstMatches.Size = new Size(330, 384);
+            lstMatches.Size = new Size(330, 404);
             lstMatches.TabIndex = 6;
             lstMatches.SelectedIndexChanged += lstMatches_SelectedIndexChanged;
             // 
+            // tabProfiliIm
+            // 
+            tabProfiliIm.Controls.Add(btnRuajNdryshimet);
+            tabProfiliIm.Controls.Add(groupBox2);
+            tabProfiliIm.Controls.Add(btnNdryshoFoton);
+            tabProfiliIm.Controls.Add(picProfiliIm);
+            tabProfiliIm.Controls.Add(btnLogout);
+            tabProfiliIm.Controls.Add(grpProfili);
+            tabProfiliIm.Location = new Point(4, 29);
+            tabProfiliIm.Name = "tabProfiliIm";
+            tabProfiliIm.Size = new Size(689, 442);
+            tabProfiliIm.TabIndex = 3;
+            tabProfiliIm.Text = "Profili Im";
+            tabProfiliIm.UseVisualStyleBackColor = true;
+            // 
+            // btnRuajNdryshimet
+            // 
+            btnRuajNdryshimet.Location = new Point(278, 347);
+            btnRuajNdryshimet.Name = "btnRuajNdryshimet";
+            btnRuajNdryshimet.Size = new Size(94, 29);
+            btnRuajNdryshimet.TabIndex = 4;
+            btnRuajNdryshimet.Text = "Ruaj Ndryshimet";
+            btnRuajNdryshimet.UseVisualStyleBackColor = true;
+            btnRuajNdryshimet.Click += btnRuajNdryshimet_Click_1;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(cmbQytetiKerkoj2);
+            groupBox2.Controls.Add(label13);
+            groupBox2.Controls.Add(label14);
+            groupBox2.Controls.Add(cmbQytetiIm2);
+            groupBox2.Controls.Add(cmbSeksiKerkoj2);
+            groupBox2.Controls.Add(label15);
+            groupBox2.Controls.Add(label16);
+            groupBox2.Controls.Add(cmbSeksiIm2);
+            groupBox2.Location = new Point(341, 27);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(306, 201);
+            groupBox2.TabIndex = 14;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Detajet e Perputhjes";
+            // 
+            // cmbQytetiKerkoj2
+            // 
+            cmbQytetiKerkoj2.FormattingEnabled = true;
+            cmbQytetiKerkoj2.Location = new Point(138, 120);
+            cmbQytetiKerkoj2.Name = "cmbQytetiKerkoj2";
+            cmbQytetiKerkoj2.Size = new Size(151, 28);
+            cmbQytetiKerkoj2.TabIndex = 26;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(7, 123);
+            label13.Name = "label13";
+            label13.Size = new Size(118, 20);
+            label13.TabIndex = 25;
+            label13.Text = "Qyteti Partnerit *";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(7, 91);
+            label14.Name = "label14";
+            label14.Size = new Size(80, 20);
+            label14.TabIndex = 24;
+            label14.Text = "Qyteti Im *";
+            // 
+            // cmbQytetiIm2
+            // 
+            cmbQytetiIm2.FormattingEnabled = true;
+            cmbQytetiIm2.Location = new Point(138, 86);
+            cmbQytetiIm2.Name = "cmbQytetiIm2";
+            cmbQytetiIm2.Size = new Size(151, 28);
+            cmbQytetiIm2.TabIndex = 23;
+            cmbQytetiIm2.SelectedIndexChanged += cmbQytetiIm2_SelectedIndexChanged;
+            // 
+            // cmbSeksiKerkoj2
+            // 
+            cmbSeksiKerkoj2.FormattingEnabled = true;
+            cmbSeksiKerkoj2.Location = new Point(138, 154);
+            cmbSeksiKerkoj2.Name = "cmbSeksiKerkoj2";
+            cmbSeksiKerkoj2.Size = new Size(151, 28);
+            cmbSeksiKerkoj2.TabIndex = 22;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(7, 159);
+            label15.Name = "label15";
+            label15.Size = new Size(111, 20);
+            label15.TabIndex = 21;
+            label15.Text = "Seksi Partnerit *";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(7, 57);
+            label16.Name = "label16";
+            label16.Size = new Size(73, 20);
+            label16.TabIndex = 20;
+            label16.Text = "Seksi Im *";
+            // 
+            // cmbSeksiIm2
+            // 
+            cmbSeksiIm2.FormattingEnabled = true;
+            cmbSeksiIm2.Location = new Point(138, 52);
+            cmbSeksiIm2.Name = "cmbSeksiIm2";
+            cmbSeksiIm2.Size = new Size(151, 28);
+            cmbSeksiIm2.TabIndex = 19;
+            cmbSeksiIm2.SelectedIndexChanged += cmbSeksiIm2_SelectedIndexChanged;
+            // 
+            // btnNdryshoFoton
+            // 
+            btnNdryshoFoton.Location = new Point(583, 329);
+            btnNdryshoFoton.Name = "btnNdryshoFoton";
+            btnNdryshoFoton.Size = new Size(94, 29);
+            btnNdryshoFoton.TabIndex = 13;
+            btnNdryshoFoton.Text = "Ruaj Foton";
+            btnNdryshoFoton.UseVisualStyleBackColor = true;
+            btnNdryshoFoton.Visible = false;
+            // 
+            // picProfiliIm
+            // 
+            picProfiliIm.Location = new Point(552, 364);
+            picProfiliIm.Name = "picProfiliIm";
+            picProfiliIm.Size = new Size(125, 62);
+            picProfiliIm.SizeMode = PictureBoxSizeMode.Zoom;
+            picProfiliIm.TabIndex = 12;
+            picProfiliIm.TabStop = false;
+            picProfiliIm.Visible = false;
+            // 
+            // btnLogout
+            // 
+            btnLogout.Location = new Point(244, 382);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(165, 29);
+            btnLogout.TabIndex = 11;
+            btnLogout.Text = "Dil ( Logout )";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click_1;
+            // 
             // grpProfili
             // 
-            grpProfili.Controls.Add(btnRuajNdryshimet);
+            grpProfili.Controls.Add(label11);
+            grpProfili.Controls.Add(dtpBirth2);
             grpProfili.Controls.Add(label8);
             grpProfili.Controls.Add(label7);
             grpProfili.Controls.Add(txtEditKontakt);
             grpProfili.Controls.Add(txtEditAbout);
-            grpProfili.Location = new Point(15, 21);
+            grpProfili.Location = new Point(16, 27);
             grpProfili.Name = "grpProfili";
-            grpProfili.Size = new Size(306, 277);
-            grpProfili.TabIndex = 5;
+            grpProfili.Size = new Size(306, 279);
+            grpProfili.TabIndex = 6;
             grpProfili.TabStop = false;
             grpProfili.Text = "Profili Im";
             // 
-            // btnRuajNdryshimet
+            // label11
             // 
-            btnRuajNdryshimet.Location = new Point(53, 219);
-            btnRuajNdryshimet.Name = "btnRuajNdryshimet";
-            btnRuajNdryshimet.Size = new Size(182, 29);
-            btnRuajNdryshimet.TabIndex = 4;
-            btnRuajNdryshimet.Text = "Ruaj Ndryshimet";
-            btnRuajNdryshimet.UseVisualStyleBackColor = true;
-            btnRuajNdryshimet.Click += btnRuajNdryshimet_Click;
+            label11.AutoSize = true;
+            label11.Location = new Point(14, 211);
+            label11.Name = "label11";
+            label11.Size = new Size(78, 20);
+            label11.TabIndex = 16;
+            label11.Text = "Datelindja";
+            // 
+            // dtpBirth2
+            // 
+            dtpBirth2.Location = new Point(101, 208);
+            dtpBirth2.MaxDate = new DateTime(2010, 12, 31, 0, 0, 0, 0);
+            dtpBirth2.MinDate = new DateTime(1950, 1, 1, 0, 0, 0, 0);
+            dtpBirth2.Name = "dtpBirth2";
+            dtpBirth2.Size = new Size(174, 27);
+            dtpBirth2.TabIndex = 15;
+            dtpBirth2.Value = new DateTime(2010, 12, 31, 0, 0, 0, 0);
             // 
             // label8
             // 
@@ -455,9 +613,13 @@
             lgnForm.PerformLayout();
             tabRegister.ResumeLayout(false);
             tabRegister.PerformLayout();
-            tabDashboard.ResumeLayout(false);
+            tabExplore.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            tabProfiliIm.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picProfiliIm).EndInit();
             grpProfili.ResumeLayout(false);
             grpProfili.PerformLayout();
             ResumeLayout(false);
@@ -468,7 +630,7 @@
         private TabControl tabMain;
         private TabPage tabLogin;
         private TabPage tabRegister;
-        private TabPage tabDashboard;
+        private TabPage tabExplore;
         private TextBox txtLoginUser;
         private TextBox txtLoginPass;
         private Button btnLogin;
@@ -491,17 +653,31 @@
         private TextBox txtRegKontakt;
         private Label label6;
         private ListBox lstMatches;
+        private Label label9;
+        private Label label10;
+        private GroupBox groupBox1;
+        private Label lblMatchContact;
+        private Label lblMatchAbout;
+        private TabPage tabProfiliIm;
         private GroupBox grpProfili;
         private Button btnRuajNdryshimet;
         private Label label8;
         private Label label7;
         private TextBox txtEditKontakt;
         private TextBox txtEditAbout;
+        private Button btnNdryshoFoton;
+        private PictureBox picProfiliIm;
         private Button btnLogout;
-        private Label label9;
-        private Label label10;
-        private GroupBox groupBox1;
-        private Label lblMatchContact;
-        private Label lblMatchAbout;
+        private GroupBox groupBox2;
+        private ComboBox cmbQytetiKerkoj2;
+        private Label label13;
+        private Label label14;
+        private ComboBox cmbQytetiIm2;
+        private ComboBox cmbSeksiKerkoj2;
+        private Label label15;
+        private Label label16;
+        private ComboBox cmbSeksiIm2;
+        private Label label11;
+        private DateTimePicker dtpBirth2;
     }
 }
