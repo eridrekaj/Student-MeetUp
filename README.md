@@ -20,7 +20,7 @@ Një platformë desktop e ndërtuar me **C#** dhe **Windows Forms** që mundëso
 
 1.  **Klononi projektin:**
     ```bash
-    git clone https://github.com/username/DatingApp.git
+    git clone https://github.com/eridrekaj/DatingApp.git
     ```
 2.  **Hapni projektin:** Hapni skedarin `.sln` në Visual Studio.
 3.  **Instaloni varësitë:** Sigurohuni që të keni paketën `Newtonsoft.Json` të instaluar via NuGet.
