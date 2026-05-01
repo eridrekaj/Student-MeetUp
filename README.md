@@ -36,4 +36,5 @@ Një platformë desktop e ndërtuar me **C#** dhe **Windows Forms** që mundëso
 
 **Ervis Drekaj** - *Web & Software Developer*
 *   GitHub: [@eridrekaj](https://github.com/eridrekaj)
+*   Website: [eridrekaj.com](https://eridrekaj.com)
 *   Location: Albania 🇦🇱
