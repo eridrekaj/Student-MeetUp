@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             tabMain = new TabControl();
             tabLogin = new TabPage();
             lgnForm = new GroupBox();
@@ -43,8 +44,11 @@
             txtRegEmri = new TextBox();
             txtRegPass = new TextBox();
             txtRegUser = new TextBox();
+            tabInfo = new TabPage();
+            label12 = new Label();
             tabExplore = new TabPage();
             groupBox1 = new GroupBox();
+            lblMatchBirthday = new Label();
             lblMatchContact = new Label();
             lblMatchAbout = new Label();
             lstMatches = new ListBox();
@@ -73,6 +77,7 @@
             tabLogin.SuspendLayout();
             lgnForm.SuspendLayout();
             tabRegister.SuspendLayout();
+            tabInfo.SuspendLayout();
             tabExplore.SuspendLayout();
             groupBox1.SuspendLayout();
             tabProfiliIm.SuspendLayout();
@@ -85,6 +90,7 @@
             // 
             tabMain.Controls.Add(tabLogin);
             tabMain.Controls.Add(tabRegister);
+            tabMain.Controls.Add(tabInfo);
             tabMain.Controls.Add(tabExplore);
             tabMain.Controls.Add(tabProfiliIm);
             tabMain.Location = new Point(12, 12);
@@ -341,6 +347,26 @@
             txtRegUser.Size = new Size(258, 27);
             txtRegUser.TabIndex = 0;
             // 
+            // tabInfo
+            // 
+            tabInfo.Controls.Add(label12);
+            tabInfo.Location = new Point(4, 29);
+            tabInfo.Name = "tabInfo";
+            tabInfo.Size = new Size(689, 442);
+            tabInfo.TabIndex = 4;
+            tabInfo.Text = "Info";
+            tabInfo.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(18, 21);
+            label12.Name = "label12";
+            label12.Size = new Size(498, 280);
+            label12.TabIndex = 0;
+            label12.Text = resources.GetString("label12.Text");
+            label12.Click += label12_Click;
+            // 
             // tabExplore
             // 
             tabExplore.Controls.Add(groupBox1);
@@ -354,6 +380,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(lblMatchBirthday);
             groupBox1.Controls.Add(lblMatchContact);
             groupBox1.Controls.Add(lblMatchAbout);
             groupBox1.Location = new Point(353, 18);
@@ -363,10 +390,19 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Detajet e Personit";
             // 
+            // lblMatchBirthday
+            // 
+            lblMatchBirthday.AutoSize = true;
+            lblMatchBirthday.Location = new Point(18, 31);
+            lblMatchBirthday.Name = "lblMatchBirthday";
+            lblMatchBirthday.Size = new Size(76, 20);
+            lblMatchBirthday.TabIndex = 3;
+            lblMatchBirthday.Text = "datelindja";
+            // 
             // lblMatchContact
             // 
             lblMatchContact.AutoSize = true;
-            lblMatchContact.Location = new Point(18, 36);
+            lblMatchContact.Location = new Point(18, 61);
             lblMatchContact.Name = "lblMatchContact";
             lblMatchContact.Size = new Size(62, 20);
             lblMatchContact.TabIndex = 2;
@@ -375,7 +411,7 @@
             // lblMatchAbout
             // 
             lblMatchAbout.AutoSize = true;
-            lblMatchAbout.Location = new Point(18, 69);
+            lblMatchAbout.Location = new Point(18, 90);
             lblMatchAbout.Name = "lblMatchAbout";
             lblMatchAbout.Size = new Size(49, 20);
             lblMatchAbout.TabIndex = 1;
@@ -435,7 +471,7 @@
             // cmbQytetiKerkoj2
             // 
             cmbQytetiKerkoj2.FormattingEnabled = true;
-            cmbQytetiKerkoj2.Location = new Point(138, 120);
+            cmbQytetiKerkoj2.Location = new Point(138, 160);
             cmbQytetiKerkoj2.Name = "cmbQytetiKerkoj2";
             cmbQytetiKerkoj2.Size = new Size(151, 28);
             cmbQytetiKerkoj2.TabIndex = 26;
@@ -443,7 +479,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(7, 123);
+            label13.Location = new Point(7, 163);
             label13.Name = "label13";
             label13.Size = new Size(118, 20);
             label13.TabIndex = 25;
@@ -470,7 +506,7 @@
             // cmbSeksiKerkoj2
             // 
             cmbSeksiKerkoj2.FormattingEnabled = true;
-            cmbSeksiKerkoj2.Location = new Point(138, 154);
+            cmbSeksiKerkoj2.Location = new Point(138, 124);
             cmbSeksiKerkoj2.Name = "cmbSeksiKerkoj2";
             cmbSeksiKerkoj2.Size = new Size(151, 28);
             cmbSeksiKerkoj2.TabIndex = 22;
@@ -478,7 +514,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(7, 159);
+            label15.Location = new Point(7, 129);
             label15.Name = "label15";
             label15.Size = new Size(111, 20);
             label15.TabIndex = 21;
@@ -613,6 +649,8 @@
             lgnForm.PerformLayout();
             tabRegister.ResumeLayout(false);
             tabRegister.PerformLayout();
+            tabInfo.ResumeLayout(false);
+            tabInfo.PerformLayout();
             tabExplore.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -679,5 +717,8 @@
         private ComboBox cmbSeksiIm2;
         private Label label11;
         private DateTimePicker dtpBirth2;
+        private Label lblMatchBirthday;
+        private TabPage tabInfo;
+        private Label label12;
     }
 }
