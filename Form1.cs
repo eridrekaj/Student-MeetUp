@@ -10,29 +10,6 @@ namespace DatingApp
     public partial class Form1 : Form
     {
 
-        // modeli i Perdoruesit
-        // mban te gjitha te dhenat kryesore te rreshtit.
-        public class User
-        {
-            public string Username { get; set; } = string.Empty;
-            public string Password { get; set; } = string.Empty;
-            public string Emri { get; set; } = string.Empty;
-            public string AboutMe { get; set; } = string.Empty;
-            public string Kontakti { get; set; } = string.Empty;
-            public string Datelindja { get; set; } = string.Empty;
-            public string SeksiIm { get; set; } = string.Empty;
-            public string SeksiKerkoj { get; set; } = string.Empty;
-            public string QytetiIm { get; set; } = string.Empty;
-            public string QytetiKerkoj { get; set; } = string.Empty;
-            public string QytetiIm2 { get; set; }
-            public string SeksiIm2 { get; set; }
-            public string QytetiKerkoj2 { get; set; }
-            public string SeksiKerkoj2 { get; set; }
-            public string FotoPath { get; set; } = string.Empty; // per tu punuar
-            public override string ToString() => $"{Emri}, {SeksiIm}";
-
-        }
-
         List<User> database = new List<User>();
         User? perdoruesiAktual = null;
         string path = "users_db.json"; // path i plote ne "bin/Debug/net10.0" ku do krijohet skedari JSON
