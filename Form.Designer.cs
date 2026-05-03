@@ -1,6 +1,6 @@
-﻿namespace DatingApp
+﻿namespace Student_MeetUp
 {
-    partial class Form1
+    partial class Form : System.Windows.Forms.Form
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -17,7 +17,7 @@
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
             tabMain = new TabControl();
             tabLogin = new TabPage();
             lgnForm = new GroupBox();
@@ -27,15 +27,14 @@
             tabRegister = new TabPage();
             label10 = new Label();
             label9 = new Label();
-            label6 = new Label();
             txtRegKontakt = new TextBox();
             label3 = new Label();
             btnRegister = new Button();
             dtpBirth = new DateTimePicker();
-            cmbQytetiKerkoj = new ComboBox();
+            cmbFakultetiKerkoj = new ComboBox();
             label5 = new Label();
             label4 = new Label();
-            cmbQytetiIm = new ComboBox();
+            cmbFakultetiIm = new ComboBox();
             cmbSeksiKerkoj = new ComboBox();
             label2 = new Label();
             label1 = new Label();
@@ -55,10 +54,10 @@
             tabProfiliIm = new TabPage();
             btnRuajNdryshimet = new Button();
             groupBox2 = new GroupBox();
-            cmbQytetiKerkoj2 = new ComboBox();
+            cmbFakultetiKerkoj2 = new ComboBox();
             label13 = new Label();
             label14 = new Label();
-            cmbQytetiIm2 = new ComboBox();
+            cmbFakultetiIm2 = new ComboBox();
             cmbSeksiKerkoj2 = new ComboBox();
             label15 = new Label();
             label16 = new Label();
@@ -125,7 +124,7 @@
             // 
             txtLoginUser.Location = new Point(6, 48);
             txtLoginUser.Name = "txtLoginUser";
-            txtLoginUser.PlaceholderText = "Emri i Perdoruesit";
+            txtLoginUser.PlaceholderText = "Emri i perdoruesit";
             txtLoginUser.Size = new Size(238, 27);
             txtLoginUser.TabIndex = 0;
             txtLoginUser.TextAlign = HorizontalAlignment.Center;
@@ -154,15 +153,14 @@
             // 
             tabRegister.Controls.Add(label10);
             tabRegister.Controls.Add(label9);
-            tabRegister.Controls.Add(label6);
             tabRegister.Controls.Add(txtRegKontakt);
             tabRegister.Controls.Add(label3);
             tabRegister.Controls.Add(btnRegister);
             tabRegister.Controls.Add(dtpBirth);
-            tabRegister.Controls.Add(cmbQytetiKerkoj);
+            tabRegister.Controls.Add(cmbFakultetiKerkoj);
             tabRegister.Controls.Add(label5);
             tabRegister.Controls.Add(label4);
-            tabRegister.Controls.Add(cmbQytetiIm);
+            tabRegister.Controls.Add(cmbFakultetiIm);
             tabRegister.Controls.Add(cmbSeksiKerkoj);
             tabRegister.Controls.Add(label2);
             tabRegister.Controls.Add(label1);
@@ -182,11 +180,11 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(362, 141);
+            label10.Location = new Point(362, 182);
             label10.Name = "label10";
-            label10.Size = new Size(132, 20);
+            label10.Size = new Size(134, 20);
             label10.TabIndex = 18;
-            label10.Text = "Detajet e Partnerit:";
+            label10.Text = "Detajet e partnerit:";
             // 
             // label9
             // 
@@ -195,29 +193,21 @@
             label9.Name = "label9";
             label9.Size = new Size(102, 20);
             label9.TabIndex = 17;
-            label9.Text = "Detajet e Mia:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(360, 275);
-            label6.Name = "label6";
-            label6.Size = new Size(134, 20);
-            label6.TabIndex = 16;
-            label6.Text = "Menyra e Kontaktit";
+            label9.Text = "Detajet e mia:";
             // 
             // txtRegKontakt
             // 
-            txtRegKontakt.Location = new Point(362, 301);
+            txtRegKontakt.Location = new Point(23, 301);
             txtRegKontakt.Name = "txtRegKontakt";
-            txtRegKontakt.PlaceholderText = "Telefon, Instagram, etj";
-            txtRegKontakt.Size = new Size(249, 27);
+            txtRegKontakt.PlaceholderText = "Menyra kontaktit; tel, email, etj";
+            txtRegKontakt.Size = new Size(258, 27);
             txtRegKontakt.TabIndex = 15;
+            txtRegKontakt.TextChanged += txtRegKontakt_TextChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(20, 304);
+            label3.Location = new Point(20, 344);
             label3.Name = "label3";
             label3.Size = new Size(78, 20);
             label3.TabIndex = 14;
@@ -225,7 +215,7 @@
             // 
             // btnRegister
             // 
-            btnRegister.Location = new Point(247, 374);
+            btnRegister.Location = new Point(247, 394);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(186, 29);
             btnRegister.TabIndex = 13;
@@ -235,7 +225,7 @@
             // 
             // dtpBirth
             // 
-            dtpBirth.Location = new Point(107, 301);
+            dtpBirth.Location = new Point(107, 341);
             dtpBirth.MaxDate = new DateTime(2010, 12, 31, 0, 0, 0, 0);
             dtpBirth.MinDate = new DateTime(1950, 1, 1, 0, 0, 0, 0);
             dtpBirth.Name = "dtpBirth";
@@ -244,45 +234,46 @@
             dtpBirth.Value = new DateTime(2010, 12, 31, 0, 0, 0, 0);
             dtpBirth.ValueChanged += dtpBirth_ValueChanged;
             // 
-            // cmbQytetiKerkoj
+            // cmbFakultetiKerkoj
             // 
-            cmbQytetiKerkoj.FormattingEnabled = true;
-            cmbQytetiKerkoj.Location = new Point(460, 178);
-            cmbQytetiKerkoj.Name = "cmbQytetiKerkoj";
-            cmbQytetiKerkoj.Size = new Size(151, 28);
-            cmbQytetiKerkoj.TabIndex = 11;
+            cmbFakultetiKerkoj.FormattingEnabled = true;
+            cmbFakultetiKerkoj.Location = new Point(362, 282);
+            cmbFakultetiKerkoj.Name = "cmbFakultetiKerkoj";
+            cmbFakultetiKerkoj.Size = new Size(249, 28);
+            cmbFakultetiKerkoj.TabIndex = 11;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(362, 181);
+            label5.Location = new Point(362, 251);
             label5.Name = "label5";
-            label5.Size = new Size(59, 20);
+            label5.Size = new Size(74, 20);
             label5.TabIndex = 10;
-            label5.Text = "Qyteti *";
+            label5.Text = "Fakulteti *";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(362, 96);
             label4.Name = "label4";
-            label4.Size = new Size(59, 20);
+            label4.Size = new Size(74, 20);
             label4.TabIndex = 9;
-            label4.Text = "Qyteti *";
+            label4.Text = "Fakulteti *";
+            label4.Click += label4_Click;
             // 
-            // cmbQytetiIm
+            // cmbFakultetiIm
             // 
-            cmbQytetiIm.FormattingEnabled = true;
-            cmbQytetiIm.Location = new Point(460, 91);
-            cmbQytetiIm.Name = "cmbQytetiIm";
-            cmbQytetiIm.Size = new Size(151, 28);
-            cmbQytetiIm.TabIndex = 8;
-            cmbQytetiIm.SelectedIndexChanged += cmbQytetiIm_SelectedIndexChanged;
+            cmbFakultetiIm.FormattingEnabled = true;
+            cmbFakultetiIm.Location = new Point(362, 128);
+            cmbFakultetiIm.Name = "cmbFakultetiIm";
+            cmbFakultetiIm.Size = new Size(249, 28);
+            cmbFakultetiIm.TabIndex = 8;
+            cmbFakultetiIm.SelectedIndexChanged += cmbFakultetiIm_SelectedIndexChanged;
             // 
             // cmbSeksiKerkoj
             // 
             cmbSeksiKerkoj.FormattingEnabled = true;
-            cmbSeksiKerkoj.Location = new Point(460, 212);
+            cmbSeksiKerkoj.Location = new Point(460, 213);
             cmbSeksiKerkoj.Name = "cmbSeksiKerkoj";
             cmbSeksiKerkoj.Size = new Size(151, 28);
             cmbSeksiKerkoj.TabIndex = 7;
@@ -290,7 +281,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(362, 217);
+            label2.Location = new Point(362, 218);
             label2.Name = "label2";
             label2.Size = new Size(52, 20);
             label2.TabIndex = 6;
@@ -326,7 +317,7 @@
             // 
             txtRegEmri.Location = new Point(23, 148);
             txtRegEmri.Name = "txtRegEmri";
-            txtRegEmri.PlaceholderText = "Emri qe Shfaqet";
+            txtRegEmri.PlaceholderText = "Emri qe shfaqet";
             txtRegEmri.Size = new Size(258, 27);
             txtRegEmri.TabIndex = 2;
             // 
@@ -343,7 +334,7 @@
             // 
             txtRegUser.Location = new Point(23, 55);
             txtRegUser.Name = "txtRegUser";
-            txtRegUser.PlaceholderText = "Emri i Perdoruesit *";
+            txtRegUser.PlaceholderText = "Emri i perdoruesit *";
             txtRegUser.Size = new Size(258, 27);
             txtRegUser.TabIndex = 0;
             // 
@@ -388,34 +379,34 @@
             groupBox1.Size = new Size(320, 404);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Detajet e Personit";
+            groupBox1.Text = "Detajet e personit";
             // 
             // lblMatchBirthday
             // 
             lblMatchBirthday.AutoSize = true;
             lblMatchBirthday.Location = new Point(18, 31);
             lblMatchBirthday.Name = "lblMatchBirthday";
-            lblMatchBirthday.Size = new Size(76, 20);
+            lblMatchBirthday.Size = new Size(15, 20);
             lblMatchBirthday.TabIndex = 3;
-            lblMatchBirthday.Text = "datelindja";
+            lblMatchBirthday.Text = "-";
             // 
             // lblMatchContact
             // 
             lblMatchContact.AutoSize = true;
             lblMatchContact.Location = new Point(18, 61);
             lblMatchContact.Name = "lblMatchContact";
-            lblMatchContact.Size = new Size(62, 20);
+            lblMatchContact.Size = new Size(15, 20);
             lblMatchContact.TabIndex = 2;
-            lblMatchContact.Text = "kontakti";
+            lblMatchContact.Text = "-";
             // 
             // lblMatchAbout
             // 
             lblMatchAbout.AutoSize = true;
             lblMatchAbout.Location = new Point(18, 90);
             lblMatchAbout.Name = "lblMatchAbout";
-            lblMatchAbout.Size = new Size(49, 20);
+            lblMatchAbout.Size = new Size(15, 20);
             lblMatchAbout.TabIndex = 1;
-            lblMatchAbout.Text = "profili";
+            lblMatchAbout.Text = "-";
             // 
             // lstMatches
             // 
@@ -453,60 +444,62 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(cmbQytetiKerkoj2);
+            groupBox2.Controls.Add(cmbFakultetiKerkoj2);
             groupBox2.Controls.Add(label13);
             groupBox2.Controls.Add(label14);
-            groupBox2.Controls.Add(cmbQytetiIm2);
+            groupBox2.Controls.Add(cmbFakultetiIm2);
             groupBox2.Controls.Add(cmbSeksiKerkoj2);
             groupBox2.Controls.Add(label15);
             groupBox2.Controls.Add(label16);
             groupBox2.Controls.Add(cmbSeksiIm2);
             groupBox2.Location = new Point(341, 27);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(306, 201);
+            groupBox2.Size = new Size(306, 279);
             groupBox2.TabIndex = 14;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Detajet e Perputhjes";
+            groupBox2.Text = "Detajet e perputhjes";
             // 
-            // cmbQytetiKerkoj2
+            // cmbFakultetiKerkoj2
             // 
-            cmbQytetiKerkoj2.FormattingEnabled = true;
-            cmbQytetiKerkoj2.Location = new Point(138, 160);
-            cmbQytetiKerkoj2.Name = "cmbQytetiKerkoj2";
-            cmbQytetiKerkoj2.Size = new Size(151, 28);
-            cmbQytetiKerkoj2.TabIndex = 26;
+            cmbFakultetiKerkoj2.FormattingEnabled = true;
+            cmbFakultetiKerkoj2.Location = new Point(10, 240);
+            cmbFakultetiKerkoj2.Name = "cmbFakultetiKerkoj2";
+            cmbFakultetiKerkoj2.Size = new Size(288, 28);
+            cmbFakultetiKerkoj2.TabIndex = 26;
+            cmbFakultetiKerkoj2.SelectedIndexChanged += cmbFakultetiKerkoj2_SelectedIndexChanged;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(7, 163);
+            label13.Location = new Point(7, 210);
             label13.Name = "label13";
-            label13.Size = new Size(118, 20);
+            label13.Size = new Size(135, 20);
             label13.TabIndex = 25;
-            label13.Text = "Qyteti Partnerit *";
+            label13.Text = "Fakulteti partnerit *";
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(7, 91);
+            label14.Location = new Point(7, 143);
             label14.Name = "label14";
-            label14.Size = new Size(80, 20);
+            label14.Size = new Size(95, 20);
             label14.TabIndex = 24;
-            label14.Text = "Qyteti Im *";
+            label14.Text = "Fakulteti im *";
+            label14.Click += label14_Click;
             // 
-            // cmbQytetiIm2
+            // cmbFakultetiIm2
             // 
-            cmbQytetiIm2.FormattingEnabled = true;
-            cmbQytetiIm2.Location = new Point(138, 86);
-            cmbQytetiIm2.Name = "cmbQytetiIm2";
-            cmbQytetiIm2.Size = new Size(151, 28);
-            cmbQytetiIm2.TabIndex = 23;
-            cmbQytetiIm2.SelectedIndexChanged += cmbQytetiIm2_SelectedIndexChanged;
+            cmbFakultetiIm2.FormattingEnabled = true;
+            cmbFakultetiIm2.Location = new Point(9, 173);
+            cmbFakultetiIm2.Name = "cmbFakultetiIm2";
+            cmbFakultetiIm2.Size = new Size(288, 28);
+            cmbFakultetiIm2.TabIndex = 23;
+            cmbFakultetiIm2.SelectedIndexChanged += cmbFakultetiIm2_SelectedIndexChanged;
             // 
             // cmbSeksiKerkoj2
             // 
             cmbSeksiKerkoj2.FormattingEnabled = true;
-            cmbSeksiKerkoj2.Location = new Point(138, 124);
+            cmbSeksiKerkoj2.Location = new Point(145, 91);
             cmbSeksiKerkoj2.Name = "cmbSeksiKerkoj2";
             cmbSeksiKerkoj2.Size = new Size(151, 28);
             cmbSeksiKerkoj2.TabIndex = 22;
@@ -514,11 +507,11 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(7, 129);
+            label15.Location = new Point(7, 96);
             label15.Name = "label15";
-            label15.Size = new Size(111, 20);
+            label15.Size = new Size(113, 20);
             label15.TabIndex = 21;
-            label15.Text = "Seksi Partnerit *";
+            label15.Text = "Seksi partnerit *";
             // 
             // label16
             // 
@@ -527,12 +520,12 @@
             label16.Name = "label16";
             label16.Size = new Size(73, 20);
             label16.TabIndex = 20;
-            label16.Text = "Seksi Im *";
+            label16.Text = "Seksi im *";
             // 
             // cmbSeksiIm2
             // 
             cmbSeksiIm2.FormattingEnabled = true;
-            cmbSeksiIm2.Location = new Point(138, 52);
+            cmbSeksiIm2.Location = new Point(145, 52);
             cmbSeksiIm2.Name = "cmbSeksiIm2";
             cmbSeksiIm2.Size = new Size(151, 28);
             cmbSeksiIm2.TabIndex = 19;
@@ -581,7 +574,7 @@
             grpProfili.Size = new Size(306, 279);
             grpProfili.TabIndex = 6;
             grpProfili.TabStop = false;
-            grpProfili.Text = "Profili Im";
+            grpProfili.Text = "Profili im";
             // 
             // label11
             // 
@@ -609,16 +602,16 @@
             label8.Name = "label8";
             label8.Size = new Size(81, 20);
             label8.TabIndex = 3;
-            label8.Text = "Rreth Meje";
+            label8.Text = "Rreth meje";
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Location = new Point(17, 133);
             label7.Name = "label7";
-            label7.Size = new Size(134, 20);
+            label7.Size = new Size(132, 20);
             label7.TabIndex = 2;
-            label7.Text = "Menyra e Kontaktit";
+            label7.Text = "Menyra e kontaktit";
             // 
             // txtEditKontakt
             // 
@@ -635,14 +628,14 @@
             txtEditAbout.Size = new Size(258, 71);
             txtEditAbout.TabIndex = 0;
             // 
-            // Form1
+            // Form
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(716, 499);
             Controls.Add(tabMain);
-            Name = "Form1";
-            Text = "Dating App";
+            Name = "Form";
+            Text = "Student MeetUp";
             tabMain.ResumeLayout(false);
             tabLogin.ResumeLayout(false);
             lgnForm.ResumeLayout(false);
@@ -681,15 +674,14 @@
         private Label label1;
         private ComboBox cmbSeksiKerkoj;
         private Label label2;
-        private ComboBox cmbQytetiKerkoj;
+        private ComboBox cmbFakultetiKerkoj;
         private Label label5;
         private Label label4;
-        private ComboBox cmbQytetiIm;
+        private ComboBox cmbFakultetiIm;
         private Button btnRegister;
         private DateTimePicker dtpBirth;
         private Label label3;
         private TextBox txtRegKontakt;
-        private Label label6;
         private ListBox lstMatches;
         private Label label9;
         private Label label10;
@@ -707,10 +699,10 @@
         private PictureBox picProfiliIm;
         private Button btnLogout;
         private GroupBox groupBox2;
-        private ComboBox cmbQytetiKerkoj2;
+        private ComboBox cmbFakultetiKerkoj2;
         private Label label13;
         private Label label14;
-        private ComboBox cmbQytetiIm2;
+        private ComboBox cmbFakultetiIm2;
         private ComboBox cmbSeksiKerkoj2;
         private Label label15;
         private Label label16;

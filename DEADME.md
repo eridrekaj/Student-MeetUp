@@ -28,9 +28,11 @@ Një platformë desktop e ndërtuar me **C#** dhe **Windows Forms** që mundëson lid
 
 ## Struktura e Skedarëve
 
-*   `Form1.cs`: Logjika kryesore e ndërfaqes dhe navigimit.
+*   `Form.cs`: Logjika kryesore e ndërfaqes dhe navigimit.
 *   `User.cs`: Modeli i të dhënave për përdoruesit.
+  * `Universiteti.cs': Modeli i të dhënave për universitetet.
 *   `users_db.json`: Skedari ku ruhen të gjitha informacionet në format tekstual.
+  * `universities_db.json`: Skedari ku ruhen të gjitha universitetet në format tekstual.
 
 ## Autori
 
