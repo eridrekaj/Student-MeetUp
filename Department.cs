@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Student_MeetUp
 {
-    public class Faculty
+    public class Department
     {
         public int Id { get; set; }
         public string Emri { get; set; }

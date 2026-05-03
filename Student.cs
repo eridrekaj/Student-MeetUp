@@ -15,8 +15,8 @@ namespace Student_MeetUp
         public string Datelindja { get; set; } = string.Empty;
         public string SeksiIm { get; set; } = string.Empty;
         public string SeksiKerkoj { get; set; } = string.Empty;
-        public int FakultetiIm { get; set; }
-        public int FakultetiKerkoj { get; set; }
+        public int DepartamentiIm { get; set; }
+        public int DepartamentiKerkoj { get; set; }
         public string FotoPath { get; set; } = string.Empty;
         public override string ToString() => $"{Emri}, {SeksiIm}";
     }

@@ -31,10 +31,10 @@
             label3 = new Label();
             btnRegister = new Button();
             dtpBirth = new DateTimePicker();
-            cmbFakultetiKerkoj = new ComboBox();
+            cmbDepartamentiKerkoj = new ComboBox();
             label5 = new Label();
             label4 = new Label();
-            cmbFakultetiIm = new ComboBox();
+            cmbDepartamentiIm = new ComboBox();
             cmbSeksiKerkoj = new ComboBox();
             label2 = new Label();
             label1 = new Label();
@@ -54,10 +54,10 @@
             tabProfiliIm = new TabPage();
             btnRuajNdryshimet = new Button();
             groupBox2 = new GroupBox();
-            cmbFakultetiKerkoj2 = new ComboBox();
+            cmbDepartamentiKerkoj2 = new ComboBox();
             label13 = new Label();
             label14 = new Label();
-            cmbFakultetiIm2 = new ComboBox();
+            cmbDepartamentiIm2 = new ComboBox();
             cmbSeksiKerkoj2 = new ComboBox();
             label15 = new Label();
             label16 = new Label();
@@ -157,10 +157,10 @@
             tabRegister.Controls.Add(label3);
             tabRegister.Controls.Add(btnRegister);
             tabRegister.Controls.Add(dtpBirth);
-            tabRegister.Controls.Add(cmbFakultetiKerkoj);
+            tabRegister.Controls.Add(cmbDepartamentiKerkoj);
             tabRegister.Controls.Add(label5);
             tabRegister.Controls.Add(label4);
-            tabRegister.Controls.Add(cmbFakultetiIm);
+            tabRegister.Controls.Add(cmbDepartamentiIm);
             tabRegister.Controls.Add(cmbSeksiKerkoj);
             tabRegister.Controls.Add(label2);
             tabRegister.Controls.Add(label1);
@@ -234,41 +234,41 @@
             dtpBirth.Value = new DateTime(2010, 12, 31, 0, 0, 0, 0);
             dtpBirth.ValueChanged += dtpBirth_ValueChanged;
             // 
-            // cmbFakultetiKerkoj
+            // cmbDepartamentiKerkoj
             // 
-            cmbFakultetiKerkoj.FormattingEnabled = true;
-            cmbFakultetiKerkoj.Location = new Point(362, 282);
-            cmbFakultetiKerkoj.Name = "cmbFakultetiKerkoj";
-            cmbFakultetiKerkoj.Size = new Size(249, 28);
-            cmbFakultetiKerkoj.TabIndex = 11;
+            cmbDepartamentiKerkoj.FormattingEnabled = true;
+            cmbDepartamentiKerkoj.Location = new Point(362, 282);
+            cmbDepartamentiKerkoj.Name = "cmbDepartamentiKerkoj";
+            cmbDepartamentiKerkoj.Size = new Size(249, 28);
+            cmbDepartamentiKerkoj.TabIndex = 11;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Location = new Point(362, 251);
             label5.Name = "label5";
-            label5.Size = new Size(74, 20);
+            label5.Size = new Size(111, 20);
             label5.TabIndex = 10;
-            label5.Text = "Fakulteti *";
+            label5.Text = "Departamenti *";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(362, 96);
             label4.Name = "label4";
-            label4.Size = new Size(74, 20);
+            label4.Size = new Size(111, 20);
             label4.TabIndex = 9;
-            label4.Text = "Fakulteti *";
+            label4.Text = "Departamenti *";
             label4.Click += label4_Click;
             // 
-            // cmbFakultetiIm
+            // cmbDepartamentiIm
             // 
-            cmbFakultetiIm.FormattingEnabled = true;
-            cmbFakultetiIm.Location = new Point(362, 128);
-            cmbFakultetiIm.Name = "cmbFakultetiIm";
-            cmbFakultetiIm.Size = new Size(249, 28);
-            cmbFakultetiIm.TabIndex = 8;
-            cmbFakultetiIm.SelectedIndexChanged += cmbFakultetiIm_SelectedIndexChanged;
+            cmbDepartamentiIm.FormattingEnabled = true;
+            cmbDepartamentiIm.Location = new Point(362, 128);
+            cmbDepartamentiIm.Name = "cmbDepartamentiIm";
+            cmbDepartamentiIm.Size = new Size(249, 28);
+            cmbDepartamentiIm.TabIndex = 8;
+            cmbDepartamentiIm.SelectedIndexChanged += cmbDepartamentiIm_SelectedIndexChanged;
             // 
             // cmbSeksiKerkoj
             // 
@@ -303,6 +303,7 @@
             cmbSeksiIm.Name = "cmbSeksiIm";
             cmbSeksiIm.Size = new Size(151, 28);
             cmbSeksiIm.TabIndex = 4;
+            cmbSeksiIm.SelectedIndexChanged += cmbSeksiIm_SelectedIndexChanged;
             // 
             // txtRegAbout
             // 
@@ -353,7 +354,7 @@
             label12.AutoSize = true;
             label12.Location = new Point(18, 21);
             label12.Name = "label12";
-            label12.Size = new Size(498, 280);
+            label12.Size = new Size(502, 280);
             label12.TabIndex = 0;
             label12.Text = resources.GetString("label12.Text");
             label12.Click += label12_Click;
@@ -444,10 +445,10 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(cmbFakultetiKerkoj2);
+            groupBox2.Controls.Add(cmbDepartamentiKerkoj2);
             groupBox2.Controls.Add(label13);
             groupBox2.Controls.Add(label14);
-            groupBox2.Controls.Add(cmbFakultetiIm2);
+            groupBox2.Controls.Add(cmbDepartamentiIm2);
             groupBox2.Controls.Add(cmbSeksiKerkoj2);
             groupBox2.Controls.Add(label15);
             groupBox2.Controls.Add(label16);
@@ -459,42 +460,42 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Detajet e perputhjes";
             // 
-            // cmbFakultetiKerkoj2
+            // cmbDepartamentiKerkoj2
             // 
-            cmbFakultetiKerkoj2.FormattingEnabled = true;
-            cmbFakultetiKerkoj2.Location = new Point(10, 240);
-            cmbFakultetiKerkoj2.Name = "cmbFakultetiKerkoj2";
-            cmbFakultetiKerkoj2.Size = new Size(288, 28);
-            cmbFakultetiKerkoj2.TabIndex = 26;
-            cmbFakultetiKerkoj2.SelectedIndexChanged += cmbFakultetiKerkoj2_SelectedIndexChanged;
+            cmbDepartamentiKerkoj2.FormattingEnabled = true;
+            cmbDepartamentiKerkoj2.Location = new Point(10, 240);
+            cmbDepartamentiKerkoj2.Name = "cmbDepartamentiKerkoj2";
+            cmbDepartamentiKerkoj2.Size = new Size(288, 28);
+            cmbDepartamentiKerkoj2.TabIndex = 26;
+            cmbDepartamentiKerkoj2.SelectedIndexChanged += cmbDepartamentiKerkoj2_SelectedIndexChanged;
             // 
             // label13
             // 
             label13.AutoSize = true;
             label13.Location = new Point(7, 210);
             label13.Name = "label13";
-            label13.Size = new Size(135, 20);
+            label13.Size = new Size(172, 20);
             label13.TabIndex = 25;
-            label13.Text = "Fakulteti partnerit *";
+            label13.Text = "Departamenti partnerit *";
             // 
             // label14
             // 
             label14.AutoSize = true;
             label14.Location = new Point(7, 143);
             label14.Name = "label14";
-            label14.Size = new Size(95, 20);
+            label14.Size = new Size(132, 20);
             label14.TabIndex = 24;
-            label14.Text = "Fakulteti im *";
+            label14.Text = "Departamenti im *";
             label14.Click += label14_Click;
             // 
-            // cmbFakultetiIm2
+            // cmbDepartamentiIm2
             // 
-            cmbFakultetiIm2.FormattingEnabled = true;
-            cmbFakultetiIm2.Location = new Point(9, 173);
-            cmbFakultetiIm2.Name = "cmbFakultetiIm2";
-            cmbFakultetiIm2.Size = new Size(288, 28);
-            cmbFakultetiIm2.TabIndex = 23;
-            cmbFakultetiIm2.SelectedIndexChanged += cmbFakultetiIm2_SelectedIndexChanged;
+            cmbDepartamentiIm2.FormattingEnabled = true;
+            cmbDepartamentiIm2.Location = new Point(9, 173);
+            cmbDepartamentiIm2.Name = "cmbDepartamentiIm2";
+            cmbDepartamentiIm2.Size = new Size(288, 28);
+            cmbDepartamentiIm2.TabIndex = 23;
+            cmbDepartamentiIm2.SelectedIndexChanged += cmbDepartamentiIm2_SelectedIndexChanged;
             // 
             // cmbSeksiKerkoj2
             // 
@@ -674,10 +675,10 @@
         private Label label1;
         private ComboBox cmbSeksiKerkoj;
         private Label label2;
-        private ComboBox cmbFakultetiKerkoj;
+        private ComboBox cmbDepartamentiKerkoj;
         private Label label5;
         private Label label4;
-        private ComboBox cmbFakultetiIm;
+        private ComboBox cmbDepartamentiIm;
         private Button btnRegister;
         private DateTimePicker dtpBirth;
         private Label label3;
@@ -699,10 +700,10 @@
         private PictureBox picProfiliIm;
         private Button btnLogout;
         private GroupBox groupBox2;
-        private ComboBox cmbFakultetiKerkoj2;
+        private ComboBox cmbDepartamentiKerkoj2;
         private Label label13;
         private Label label14;
-        private ComboBox cmbFakultetiIm2;
+        private ComboBox cmbDepartamentiIm2;
         private ComboBox cmbSeksiKerkoj2;
         private Label label15;
         private Label label16;
