@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.Json;
 using System.Windows.Forms;
+using BCrypt.Net;
 
 namespace Student_MeetUp
 {
@@ -38,6 +40,7 @@ namespace Student_MeetUp
 
         }
 
+        // funksioni qe lexon nga skedari dhe i deserializon ne liste
         private void LexoNgaDatabase()
         {
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
@@ -62,7 +65,6 @@ namespace Student_MeetUp
         }
 
         // funksioni qe mbushim listat dinamike
-
         private void MbushListat()
         {
 
@@ -127,7 +129,7 @@ namespace Student_MeetUp
             Student iRi = new Student
             {
                 Username = txtRegUser.Text,
-                Password = txtRegPass.Text,
+                Password = BCrypt.Net.BCrypt.HashPassword(txtRegPass.Text),
                 Emri = txtRegEmri.Text,
                 Info = txtRegAbout.Text,
                 Kontakti = txtRegKontakt.Text,
@@ -144,16 +146,19 @@ namespace Student_MeetUp
 
             MessageBox.Show("Llogaria u krijua me sukses! Tani mund te identifikoheni.");
             tabMain.SelectedTab = tabLogin;
+        
         }
 
         // kur klikojme login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            var une = listaStudenteve.FirstOrDefault(u => u.Username == txtLoginUser.Text && u.Password == txtLoginPass.Text);
 
-            if (une != null)
+            var une = listaStudenteve.FirstOrDefault(u => u.Username.Equals(txtLoginUser.Text, StringComparison.OrdinalIgnoreCase));
+
+            if (une != null && BCrypt.Net.BCrypt.Verify(txtLoginPass.Text, une.Password))
             {
+
                 perdoruesiAktual = une;
 
                 // shfaqim tabelat e dashboardit
@@ -263,6 +268,8 @@ namespace Student_MeetUp
 
                 RuajNeDatabase();
                 RifreskoMatches();
+                PastroProfilinMatch();
+
                 MessageBox.Show("Ndryshimet ne profilin tend u ruajten!");
             }
         }
@@ -324,6 +331,17 @@ namespace Student_MeetUp
                 lblMatchBirthday.Text = "Departamenti: " + (fak != null ? fak.Emri : "I panjohur");
 
             }
+        }
+
+        // funksion ndihmes per te pastruar detajet e matches kur ndryshojme selektimin
+        private void PastroProfilinMatch()
+        {
+            
+            lblMatchAbout.Text = "Bio: ";
+            lblMatchContact.Text = "Kontakt: ";
+            lblMatchBirthday.Text = "Departamenti: ";
+            lstMatches.SelectedIndex = -1; // hiq selektimin nga lista
+        
         }
 
         // eventet boshe te ruajtura sipas kerkeses
