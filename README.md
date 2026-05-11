@@ -1,4 +1,4 @@
-# 💘 DatingApp - C# Desktop Application
+# 💘 StudentMeetup - C# Desktop Application
 
 Një platformë desktop e ndërtuar me **C#** dhe **Windows Forms** që mundëson lidhjen e përdoruesve bazuar në preferencat e tyre gjeografike dhe gjinore. Ky projekt përdor një arkitekturë të lehtë me skedarë **JSON** për menaxhimin e të dhënave.
 
@@ -20,7 +20,7 @@ Një platformë desktop e ndërtuar me **C#** dhe **Windows Forms** që mundëso
 
 1.  **Klononi projektin:**
     ```bash
-    git clone https://github.com/eridrekaj/DatingApp.git
+    git clone https://github.com/eridrekaj/StudentMeetup.git
     ```
 2.  **Hapni projektin:** Hapni skedarin `.sln` në Visual Studio.
 3.  **Instaloni varësitë:** Sigurohuni që të keni paketën `Newtonsoft.Json` të instaluar via NuGet.
