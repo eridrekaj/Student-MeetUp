@@ -1,17 +1,30 @@
+using BCrypt.Net;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.Json;
 using System.Windows.Forms;
-using BCrypt.Net;
 
 namespace Student_MeetUp
 {
     public partial class Form : System.Windows.Forms.Form
     {
+
+        // krijojme dy lista; studentet dhe departamentet
+
+        /*
+
+        string ftpServer = "ftps://serveri.com/";
+        string ftpUser = "username";
+        string ftpPass = "password";
+        string ftpPathStudents = "/public_html/data/students_db.json";
+        string ftpPathDepartments = "/public_html/data/departments_db.json";
+
+        */
 
         // krijojme dy lista; studentet dhe departamentet
 
@@ -39,6 +52,50 @@ namespace Student_MeetUp
             MbushListat();
 
         }
+        
+        /*
+        
+        // funksioni qe lexon nga serveri dhe i deserializon ne liste
+        
+        private void LexoNgaDatabase()
+        {
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
+            try
+            {
+                // Lexo Studentet nga FTP
+                string jsonStudents = ShkarkoNgaFtp(ftpPathStudents);
+                if (!string.IsNullOrWhiteSpace(jsonStudents))
+                    listaStudenteve = JsonSerializer.Deserialize<List<Student>>(jsonStudents, options) ?? new List<Student>();
+
+                // Lexo Departamentet nga FTP
+                string jsonDepts = ShkarkoNgaFtp(ftpPathDepartments);
+                if (!string.IsNullOrWhiteSpace(jsonDepts))
+                    listaDepartamenteve = JsonSerializer.Deserialize<List<Department>>(jsonDepts, options) ?? new List<Department>();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gabim gjatë lidhjes me FTP: " + ex.Message);
+            }
+        }
+
+        // funksion ndihmes per shkarkimin
+
+        private string ShkarkoNgaFtp(string fileName)
+        {
+            string url = ftpServer + fileName;
+            WebClient request = new WebClient();
+            request.Credentials = new NetworkCredential(ftpUser, ftpPass);
+
+            try
+            {
+                byte[] fileData = request.DownloadData(url);
+                return Encoding.UTF8.GetString(fileData);
+            }
+            catch { return ""; } // Kthe bosh nëse skedari nuk ekziston ende
+        }
+
+        */
 
         // funksioni qe lexon nga skedari dhe i deserializon ne liste
         private void LexoNgaDatabase()
@@ -103,7 +160,6 @@ namespace Student_MeetUp
         }
 
         // kur klikojme butonin register
-
         private void btnRegister_Click(object sender, EventArgs e)
         {
 
@@ -298,6 +354,41 @@ namespace Student_MeetUp
             tabMain.SelectedTab = tabLogin;
 
         }
+
+        // funksion ndihmes per te ruajtur ne server
+
+        /*
+
+        private void RuajNeDatabase()
+        {
+            try 
+            {
+                string json = JsonSerializer.Serialize(listaStudenteve, new JsonSerializerOptions { WriteIndented = true });
+                byte[] data = Encoding.UTF8.GetBytes(json);
+
+                string url = ftpServer + ftpPathStudents;
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(url);
+                request.Method = WebRequestMethods.Ftp.UploadFile;
+                request.Credentials = new NetworkCredential(ftpUser, ftpPass);
+                request.ContentLength = data.Length;
+
+                using (Stream requestStream = request.GetRequestStream())
+                {
+                    requestStream.Write(data, 0, data.Length);
+                }
+
+                using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+                {
+                    // opsionale: mund te kontrollosh response.StatusDescription
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Deshtoi ruajtja: " + ex.Message);
+            }
+        }
+
+        */
 
         // funksion ndihmes per te ruajte ne skedar
 
