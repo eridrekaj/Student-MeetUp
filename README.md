@@ -24,13 +24,35 @@ Një platformë desktop e ndërtuar me **C#** dhe **Windows Forms** që mundëso
     ```
 2.  **Hapni projektin:** Hapni skedarin `.sln` në Visual Studio.
 3.  **Instaloni varësitë:** Sigurohuni që të keni paketën `Newtonsoft.Json` të instaluar via NuGet.
+4.  **Krijoni Skedarët:** Merri si më poshtë tek Struktura.
 4.  **Ekzekutoni:** Shtypni `F5` për të nisur aplikacionin.
 
 ## 📂 Struktura e Skedarëve
 
 *   `Form1.cs`: Logjika kryesore e ndërfaqes dhe navigimit.
 *   `User.cs`: Modeli i të dhënave për përdoruesit.
-*   `users_db.json`: Skedari ku ruhen të gjitha informacionet në format tekstual.
+
+*   `departments_db.json`: Skedari ku ruhen departamentet.
+[
+{"Id": 10, "Emri": "Fakulteti Gjuheve te Huaja (kudo)"},
+]
+
+*   `students_db.json`: Skedari ku ruhen të gjitha informacionet për studentin.
+[
+  {
+    "Username": "user1",
+    "Password": "pass",
+    "Emri": "UserOne",
+    "Info": "Jam nje djale i kendshem!",
+    "Kontakti": "WhatsApp 0682091611",
+    "Datelindja": "3/21/1990",
+    "SeksiIm": "Mashkull",
+    "SeksiKerkoj": "Femer",
+    "DepartamentiIm": 61,
+    "DepartamentiKerkoj": 63,
+    "FotoPath": ""
+  }
+]
 
 ## 👤 Autori
 
